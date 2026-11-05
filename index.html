@@ -1,1 +1,149 @@
-https://github.com/a135pls/Biblioteca-documental/blob/main/index.html
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biblioteca documental</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f6fa;
+      color: #243247;
+    }
+    header {
+      background: #142d4e;
+      color: white;
+      padding: 48px 20px;
+      text-align: center;
+    }
+    header h1 { margin: 0 0 12px; }
+    header p { margin: 0; color: #d7e3f0; }
+    main {
+      max-width: 950px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+    .buscador {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #cbd5e1;
+      border-radius: 9px;
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+    .documento {
+      background: white;
+      padding: 22px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      border: 1px solid #e1e7ef;
+      box-shadow: 0 2px 8px #142d4e0a;
+    }
+    .documento h2 {
+      font-size: 19px;
+      margin: 0 0 10px;
+    }
+    .documento p {
+      color: #64748b;
+      margin: 0 0 18px;
+    }
+    .boton {
+      display: inline-block;
+      background: #195a99;
+      color: white;
+      padding: 11px 16px;
+      margin: 4px 8px 4px 0;
+      border-radius: 7px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .boton:hover { background: #123f6d; }
+    .descarga { background: #334155; }
+    .aviso {
+      padding: 18px;
+      background: #e8f0fa;
+      border-radius: 9px;
+      margin-top: 30px;
+      line-height: 1.6;
+    }
+    footer {
+      text-align: center;
+      color: #64748b;
+      padding: 30px 15px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Biblioteca documental</h1>
+  <p>Consulta y descarga de documentos</p>
+</header>
+
+<main>
+  <input
+    class="buscador"
+    id="buscador"
+    type="search"
+    placeholder="Buscar documentos..."
+    aria-label="Buscar documentos"
+  >
+
+  <section id="documentos">
+
+    <!-- EJEMPLO: SUSTITUIR POR TUS DOCUMENTOS -->
+    <article class="documento">
+      <h2>Documento de ejemplo</h2>
+      <p>Archivo PDF protegido con contraseña.</p>
+      <a class="boton"
+         href="documentos/ejemplo.pdf"
+         target="_blank"
+         rel="noopener">
+        Visualizar PDF
+      </a>
+      <a class="boton descarga"
+         href="documentos/ejemplo.pdf"
+         download>
+        Descargar PDF
+      </a>
+    </article>
+
+  </section>
+
+  <div class="aviso">
+    <strong>Información importante</strong>
+    <p>
+      Los documentos pueden estar protegidos mediante
+      contraseña de apertura. Para consultar su contenido,
+      será necesario disponer de la clave correspondiente.
+    </p>
+  </div>
+</main>
+
+<footer>
+  Biblioteca documental · Acceso a documentación
+</footer>
+
+<script>
+  const buscador = document.getElementById("buscador");
+  const documentos = document.querySelectorAll(".documento");
+
+  buscador.addEventListener("input", function () {
+    const texto = this.value.toLocaleLowerCase("es");
+
+    documentos.forEach(function (documento) {
+      const contenido = documento.textContent
+        .toLocaleLowerCase("es");
+
+      documento.style.display =
+        contenido.includes(texto) ? "" : "none";
+    });
+  });
+</script>
+
+</body>
+</html>
