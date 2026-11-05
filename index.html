@@ -5,27 +5,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Biblioteca documental</title>
+
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #f3f6fa;
       color: #243247;
     }
+
     header {
       background: #142d4e;
       color: white;
       padding: 48px 20px;
       text-align: center;
     }
-    header h1 { margin: 0 0 12px; }
-    header p { margin: 0; color: #d7e3f0; }
+
+    header h1 {
+      margin: 0 0 12px;
+    }
+
+    header p {
+      margin: 0;
+      color: #d7e3f0;
+    }
+
     main {
       max-width: 950px;
       margin: 35px auto;
       padding: 0 20px;
     }
+
     .buscador {
       width: 100%;
       padding: 15px;
@@ -34,6 +48,7 @@
       font-size: 16px;
       margin-bottom: 25px;
     }
+
     .documento {
       background: white;
       padding: 22px;
@@ -42,14 +57,17 @@
       border: 1px solid #e1e7ef;
       box-shadow: 0 2px 8px #142d4e0a;
     }
+
     .documento h2 {
       font-size: 19px;
       margin: 0 0 10px;
     }
+
     .documento p {
       color: #64748b;
       margin: 0 0 18px;
     }
+
     .boton {
       display: inline-block;
       background: #195a99;
@@ -60,8 +78,15 @@
       text-decoration: none;
       font-size: 14px;
     }
-    .boton:hover { background: #123f6d; }
-    .descarga { background: #334155; }
+
+    .boton:hover {
+      background: #123f6d;
+    }
+
+    .descarga {
+      background: #334155;
+    }
+
     .aviso {
       padding: 18px;
       background: #e8f0fa;
@@ -69,6 +94,7 @@
       margin-top: 30px;
       line-height: 1.6;
     }
+
     footer {
       text-align: center;
       color: #64748b;
@@ -77,6 +103,7 @@
     }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -85,6 +112,7 @@
 </header>
 
 <main>
+
   <input
     class="buscador"
     id="buscador"
@@ -95,19 +123,22 @@
 
   <section id="documentos">
 
-    <!-- EJEMPLO: SUSTITUIR POR TUS DOCUMENTOS -->
     <article class="documento">
-      <h2>Documento de ejemplo</h2>
-      <p>Archivo PDF protegido con contraseña.</p>
-      <a class="boton"
-         href="documentos/ejemplo.pdf"
-         target="_blank"
-         rel="noopener">
+      <h2>Tablas de actuación</h2>
+      <p>Documento PDF protegido con contraseña.</p>
+
+      <a
+        class="boton"
+        href="Tablas%20de%20actuaci%C3%B3n_protected.pdf"
+        target="_blank"
+        rel="noopener">
         Visualizar PDF
       </a>
-      <a class="boton descarga"
-         href="documentos/ejemplo.pdf"
-         download>
+
+      <a
+        class="boton descarga"
+        href="Tablas%20de%20actuaci%C3%B3n_protected.pdf"
+        download>
         Descargar PDF
       </a>
     </article>
@@ -117,11 +148,13 @@
   <div class="aviso">
     <strong>Información importante</strong>
     <p>
-      Los documentos pueden estar protegidos mediante
-      contraseña de apertura. Para consultar su contenido,
-      será necesario disponer de la clave correspondiente.
+      Los documentos están protegidos mediante
+      contraseña de apertura. Para consultar su
+      contenido, será necesario disponer de
+      la clave correspondiente.
     </p>
   </div>
+
 </main>
 
 <footer>
