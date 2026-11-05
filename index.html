@@ -3,13 +3,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Biblioteca documental</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -21,12 +19,13 @@
     header {
       background: #142d4e;
       color: white;
-      padding: 48px 20px;
+      padding: 45px 20px;
       text-align: center;
     }
 
     header h1 {
       margin: 0 0 12px;
+      font-size: 32px;
     }
 
     header p {
@@ -40,39 +39,39 @@
       padding: 0 20px;
     }
 
-    .buscador {
+    #buscador {
       width: 100%;
-      padding: 15px;
+      padding: 16px;
+      margin-bottom: 25px;
       border: 1px solid #cbd5e1;
       border-radius: 9px;
       font-size: 16px;
-      margin-bottom: 25px;
     }
 
     .documento {
       background: white;
-      padding: 22px;
-      margin-bottom: 15px;
-      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 18px;
       border: 1px solid #e1e7ef;
+      border-radius: 12px;
       box-shadow: 0 2px 8px #142d4e0a;
     }
 
     .documento h2 {
-      font-size: 19px;
-      margin: 0 0 10px;
+      margin: 0 0 12px;
+      font-size: 21px;
     }
 
     .documento p {
       color: #64748b;
-      margin: 0 0 18px;
+      margin: 0 0 20px;
     }
 
     .boton {
       display: inline-block;
       background: #195a99;
       color: white;
-      padding: 11px 16px;
+      padding: 12px 18px;
       margin: 4px 8px 4px 0;
       border-radius: 7px;
       text-decoration: none;
@@ -88,9 +87,9 @@
     }
 
     .aviso {
-      padding: 18px;
       background: #e8f0fa;
-      border-radius: 9px;
+      padding: 22px;
+      border-radius: 10px;
       margin-top: 30px;
       line-height: 1.6;
     }
@@ -98,85 +97,91 @@
     footer {
       text-align: center;
       color: #64748b;
-      padding: 30px 15px;
+      padding: 35px 15px;
       font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 26px; }
+      .documento { padding: 18px; }
+      .boton { margin-bottom: 8px; }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Biblioteca documental</h1>
-  <p>Consulta y descarga de documentos</p>
-</header>
+  <header>
+    <h1>Biblioteca documental</h1>
+    <p>Consulta y descarga de documentos</p>
+  </header>
 
-<main>
+  <main>
 
-  <input
-    class="buscador"
-    id="buscador"
-    type="search"
-    placeholder="Buscar documentos..."
-    aria-label="Buscar documentos"
-  >
+    <input
+      type="search"
+      id="buscador"
+      placeholder="Buscar documentos..."
+      aria-label="Buscar documentos"
+    >
 
-  <section id="documentos">
+    <section id="documentos">
 
-    <article class="documento">
-      <h2>Tablas de actuación</h2>
-      <p>Documento PDF protegido con contraseña.</p>
+      <article class="documento">
+        <h2>Tablas de actuación</h2>
+        <p>Documento PDF protegido con contraseña.</p>
 
-      <a
-        class="boton"
-        href="Tablas%20de%20actuaci%C3%B3n_protected.pdf"
-        target="_blank"
-        rel="noopener">
-        Visualizar PDF
-      </a>
+        <a
+          class="boton"
+          href="Tablas%20de%20actuaci%C3%B3n_protected.pdf"
+          target="_blank"
+          rel="noopener">
+          Visualizar PDF
+        </a>
 
-      <a
-        class="boton descarga"
-        href="Tablas%20de%20actuaci%C3%B3n_protected.pdf"
-        download>
-        Descargar PDF
-      </a>
-    </article>
+        <a
+          class="boton descarga"
+          href="Tablas%20de%20actuaci%C3%B3n_protected.pdf"
+          download>
+          Descargar PDF
+        </a>
 
-  </section>
+      </article>
 
-  <div class="aviso">
-    <strong>Información importante</strong>
-    <p>
-      Los documentos están protegidos mediante
-      contraseña de apertura. Para consultar su
-      contenido, será necesario disponer de
-      la clave correspondiente.
-    </p>
-  </div>
+    </section>
 
-</main>
+    <div class="aviso">
+      <strong>Información importante</strong>
+      <p>
+        Los documentos están protegidos mediante
+        contraseña de apertura. Para consultar su
+        contenido es necesario disponer de la
+        contraseña correspondiente.
+      </p>
+    </div>
 
-<footer>
-  Biblioteca documental · Acceso a documentación
-</footer>
+  </main>
 
-<script>
-  const buscador = document.getElementById("buscador");
-  const documentos = document.querySelectorAll(".documento");
+  <footer>
+    Biblioteca documental · Acceso a documentación
+  </footer>
 
-  buscador.addEventListener("input", function () {
-    const texto = this.value.toLocaleLowerCase("es");
+  <script>
+    const buscador = document.getElementById("buscador");
+    const documentos = document.querySelectorAll(".documento");
 
-    documentos.forEach(function (documento) {
-      const contenido = documento.textContent
-        .toLocaleLowerCase("es");
+    buscador.addEventListener("input", function() {
+      const texto = this.value.toLocaleLowerCase("es");
 
-      documento.style.display =
-        contenido.includes(texto) ? "" : "none";
+      documentos.forEach(function(documento) {
+        const contenido = documento.textContent
+          .toLocaleLowerCase("es");
+
+        documento.style.display =
+          contenido.includes(texto) ? "" : "none";
+      });
     });
-  });
-</script>
+  </script>
 
 </body>
 </html>
