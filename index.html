@@ -7,7 +7,9 @@
   <title>Biblioteca documental</title>
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -86,6 +88,10 @@
       background: #334155;
     }
 
+    .descarga:hover {
+      background: #1e293b;
+    }
+
     .aviso {
       background: #e8f0fa;
       padding: 22px;
@@ -102,9 +108,17 @@
     }
 
     @media (max-width: 600px) {
-      header h1 { font-size: 26px; }
-      .documento { padding: 18px; }
-      .boton { margin-bottom: 8px; }
+      header h1 {
+        font-size: 26px;
+      }
+
+      .documento {
+        padding: 18px;
+      }
+
+      .boton {
+        margin-bottom: 8px;
+      }
     }
   </style>
 </head>
@@ -128,12 +142,16 @@
     <section id="documentos">
 
       <article class="documento">
+
         <h2>Tablas de actuación</h2>
-        <p>Documento PDF protegido con contraseña.</p>
+
+        <p>
+          Documento PDF protegido con contraseña.
+        </p>
 
         <a
           class="boton"
-          href="Tablas%20de%20actuaci%C3%B3n_protected.pdf"
+          href="tablas-actuaci%C3%B3n.pdf"
           target="_blank"
           rel="noopener">
           Visualizar PDF
@@ -141,7 +159,7 @@
 
         <a
           class="boton descarga"
-          href="Tablas%20de%20actuaci%C3%B3n_protected.pdf"
+          href="tablas-actuaci%C3%B3n.pdf"
           download>
           Descargar PDF
         </a>
@@ -151,13 +169,16 @@
     </section>
 
     <div class="aviso">
+
       <strong>Información importante</strong>
+
       <p>
         Los documentos están protegidos mediante
         contraseña de apertura. Para consultar su
         contenido es necesario disponer de la
         contraseña correspondiente.
       </p>
+
     </div>
 
   </main>
@@ -171,15 +192,19 @@
     const documentos = document.querySelectorAll(".documento");
 
     buscador.addEventListener("input", function() {
+
       const texto = this.value.toLocaleLowerCase("es");
 
       documentos.forEach(function(documento) {
+
         const contenido = documento.textContent
           .toLocaleLowerCase("es");
 
         documento.style.display =
           contenido.includes(texto) ? "" : "none";
+
       });
+
     });
   </script>
 
